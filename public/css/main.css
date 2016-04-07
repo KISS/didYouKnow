@@ -1,0 +1,81 @@
+body {
+	font-family: 'PT Sans Narrow', sans-serif;
+	color: #005370;
+}
+
+h1, 
+h2, 
+h3 {
+	font-family: 'Lobster Two', cursive;
+	letter-spacing: 0.15em;
+	font-size: 1.4em;
+}
+
+a {
+	color: #01A9DB;
+}
+
+.header {
+	background-color: #A9F3A9;
+	text-align: center;
+	padding: 15px;
+	border-bottom: 1px dashed;
+  margin-bottom: 30px;
+}
+
+.description,
+.search-option {
+	margin: 0 auto;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.filters__list {
+	padding: 0px;
+}
+
+.filters__list li {
+	list-style: none;
+	display: inline-block;
+	color: #ffffff;
+	padding: 10px;
+}
+
+.filters__list button {
+	background-color: #01A9DB;
+	width: 90px;
+	height: 90px;
+	border-radius: 100%;
+	border: none;
+	float: left;
+}
+
+.embedded-tweet-container {
+	margin: 0 auto 50px;
+  padding: 10px 20px 0;
+  max-width: 560px;
+}
+
+.embedded-tweet {
+	padding: 0px 20px 10px;
+  border: 1px dotted #8AC78A;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 25px 0px #8AC78A;
+}
+
+footer {
+	position: absolute;
+  font-size: 0.85em;
+  color: #8499A0;
+  width: 100%;
+}
+
+footer div {
+	text-align: center;
+	margin: 0 auto;
+  width: 90%;
+}
+
+footer a {
+	color: #005370;
+}

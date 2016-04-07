@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html ng-app="TwitterApp">
+<head>
+	<title>Did You Know?</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/normalize.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Lobster+Two:700italic,700,400italic,400|PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="myCtrlSearch">
+	<div class="page-container">
+		<div class="header">
+			<h1>Did You Know?</h1>
+		</div>
+
+		<div class="description">
+			<p>Discover something new today. Select a button or enter your own search below: </p>
+		</div>
+
+		<div class="filters search-option">
+			<ul class="filters__list">
+				<li class="filters__politics">
+					<button btn-attr-click filter="politics%2C%20OR%20%23political%20from%3Acnnbrk%2C%20OR%20from%3Anprpolitics%2C%20OR%20from%3AAP_Politics%2C%20OR%20from%3ANewsweek%2C%20OR%20from%3Areddit%2C%20OR%20from%3Anytimesworld">Politics</button>
+				</li>
+				<li class="filters__webDev">
+					<button btn-attr-click filter="webdev%2C%20OR%20%23devtips%2C%20OR%20%23webdesign%20lang%3Aen">Web development</button>
+				</li>
+				<li class="filters__economics">
+					<button btn-attr-click filter="economics%2C%20OR%20%23economic%2C%20OR%20%23econ%2C%20OR%20%23economy%20from%3Anytimes%2C%20OR%20from%3Atheeconomist%2C%20OR%20from%3Awef%2C%20OR%20from%3Abusiness%2C%20OR%20from%3AEconBizFin%2C%20OR%20from%3AMcKQuarterly%2C%20OR%20from%3Aecb%2C%20OR%20from%3Anytimesworld%2C%20OR%20from%3Aarstechnica%2C%20OR%20from%3AIMFNews">Economics</button>
+				</li>
+				<li class="filters__random">
+					<button btn-attr-click filter="til%20lang%3Aen">Random</button>
+				</li>
+			</ul>
+		</div>
+
+		<div class="search-option">
+			<input type="text" placeholder="enter your custom search" ng-model="searchQ">
+			<button ng-click="doSearch(searchQ)">Search</button>
+		</div>
+
+		<div class="embedded-tweet-container">
+			<div ng-if="twitterErrors">
+				<div class="description">
+					<p>Dang looks like that didn't work out: </p>
+					<p>{{twitterErrors}}</p>
+					<p>Try your luck by selecting another option.</p>
+				</div>
+			</div>
+			<div ng-if="results">
+				<div class="description">
+					<p>Your new piece of knowledge for today is: </p>
+				</div>
+				<div class="embedded-tweet" ng-repeat="result in results.statuses">
+					<div>
+						<p> 
+							"{{result.text}}" - @<a ng-href="https://twitter.com/{{result.user.screen_name}}">{{result.user.screen_name}}</a> 
+						</p>
+						<div> 
+							<a ng-href="https://twitter.com/{{result.user.screen_name}}/status/{{result.id_str}}">View Original Tweet</a>
+						</div>
+						<div>
+							<a ng-href="{{result.entities.urls[0].url}}">Read linked article</a>
+						</div>
+					</div>
+				</div>
+				<div class="description">
+					<p>Try your luck by selecting another option. There's always room for knowing more.</p>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div> ~ &copy;2016 Luisa Marieth Morales ~ 
+				<br/>Twitter: <a href="https://twitter.com/luisamariethm">@luisamariethm</a> - View project GitHub: <a href="https://github.com/KISS/didYouKnow/">@KISS</a>
+			</div>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.5.3/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

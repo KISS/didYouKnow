@@ -1,0 +1,17 @@
+{
+  "name": "did-you-know",
+  "version": "1.0.0",
+  "description": "twitter app showcasing one fact, per subject, per day",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luisa Marieth Morales",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "oauth": "^0.9.14",
+    "twitter-node-client": "0.0.6"
+  }
+}
