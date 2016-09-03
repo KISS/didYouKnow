@@ -38,28 +38,26 @@
 		</div>
 
 		<div class="search-option">
-			<input type="text" placeholder="enter your custom search" ng-model="searchQ">
+			<input type="text" placeholder="enter a term like: nyc" ng-model="searchQ">
 			<button ng-click="doSearch(searchQ)">Search</button>
 		</div>
 
 		<div class="embedded-tweet-container">
 			<div ng-if="twitterErrors">
-				<div class="description">
-					<p>Dang looks like that didn't work out: </p>
-					<p>{{twitterErrors}}</p>
-					<p>Try your luck by selecting another option.</p>
+				<div class="embedded-tweet description">
+					<p>Dang looks like that didn't work out: {{twitterErrors}}</p>
 				</div>
 			</div>
 			<div ng-if="results">
 				<div class="description">
 					<p>Your new piece of knowledge for today is: </p>
 				</div>
-				<div class="embedded-tweet" ng-repeat="result in results.statuses">
-					<div>
-						<p> 
-							"{{result.text}}" - @<a ng-href="https://twitter.com/{{result.user.screen_name}}">{{result.user.screen_name}}</a> 
+				<div class="embedded-tweet" ng-if="results.statuses">
+					<div ng-repeat="result in results.statuses">
+						<p>
+							"{{result.text}}" - @<a ng-href="https://twitter.com/{{result.user.screen_name}}">{{result.user.screen_name}}</a>
 						</p>
-						<div> 
+						<div>
 							<a ng-href="https://twitter.com/{{result.user.screen_name}}/status/{{result.id_str}}">View Original Tweet</a>
 						</div>
 						<div>
@@ -68,15 +66,13 @@
 					</div>
 				</div>
 				<div class="description">
-					<p>Try your luck by selecting another option. There's always room for knowing more.</p>
+					<p>Not seeing anything? This happens sometimes, try your luck by selecting another option. There's always room for knowing more.</p>
 				</div>
 			</div>
 		</div>
 
 		<footer>
-			<div> ~ &copy;2016 Luisa Marieth Morales ~ 
-				<br/>Twitter: <a href="https://twitter.com/luisamariethm">@luisamariethm</a> - View project GitHub: <a href="https://github.com/KISS/didYouKnow/">@KISS</a>
-			</div>
+			<div> ~ &copy;2016 Luisa Marieth Morales ~ <br/>Twitter: <a href="https://twitter.com/luisamariethm">@luisamariethm</a> - View this project GitHub: <a href="https://github.com/KISS/didYouKnow/">@KISS</a></div>
 		</footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
